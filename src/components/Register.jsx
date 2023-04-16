@@ -5,7 +5,8 @@ import { Result } from 'postcss';
 
 const Register = () => {
 
-    const {user, createUser} = useContext(AuthContext)
+    const { createUser} = useContext(AuthContext)
+    
     
 
 
@@ -18,18 +19,16 @@ const Register = () => {
         const name = form.name.value
         const email = form.email.value
         const password = form.password.value
-        console.log(form, email, password)
+        console.log( email, password)
 
         createUser(email,password)
         .then(result=>{
             const loggedUser= result.user
-            console.log(loggedUser)
+            // console.log(loggedUser)
         })
         .catch(error=>{
             console.log(error.message)
         })
-       
-
 
     }
 
@@ -38,7 +37,7 @@ const Register = () => {
             <div className="hero-content flex-col ">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register now!</h1>
-                    <p>{user}</p>
+                    
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit} className="card-body">
